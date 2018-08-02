@@ -1,0 +1,6 @@
+﻿  HalfEdgeElement.cpp
+d:\shagufta\opengl_workspace\meshmanupulation\meshmanupulation\sourcefiels\mesheditor\meshelements\halfedgeelement.cpp(36): warning C4244: 'argument': conversion from 'double' to 'const float', possible loss of data
+d:\shagufta\opengl_workspace\meshmanupulation\meshmanupulation\sourcefiels\mesheditor\meshelements\halfedgeelement.cpp(38): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+d:\shagufta\opengl_workspace\meshmanupulation\meshmanupulation\sourcefiels\mesheditor\meshelements\halfedgeelement.cpp(39): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+d:\shagufta\opengl_workspace\meshmanupulation\meshmanupulation\sourcefiels\mesheditor\meshelements\halfedgeelement.cpp(42): warning C4244: 'argument': conversion from 'double' to 'const float', possible loss of data
+  MeshManupulation.vcxproj -> D:\Shagufta\OpenGL_Workspace\MeshManupulation\Debug\MeshManupulation.exe
