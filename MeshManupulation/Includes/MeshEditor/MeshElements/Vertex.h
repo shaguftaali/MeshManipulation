@@ -33,19 +33,19 @@ namespace MeshManupulation
 			HalfEdgeCIter halfEdge() const;
 
 
-			virtual void translate(double dx, double dy, const Matrix4& modelViewProj);
+		void translate(double dx, double dy, const Matrix4& modelViewProj) override;
 
-			virtual BBox bounds() const ;
+		BBox bounds() const override;
 
-			virtual Info getInfo() const ;
+		Info getInfo() ;
 
 			void getNeighbourhood(std::map<HalfEdgeIter,double>& seen, int depth=1);
 
 			void smoothNeighborhood(double diff, std::map<HalfEdgeIter,double>& seen,int depth=1);
 
-			virtual  void getAxes(std::vector<Vector3>& axes) const;
+		void getAxes(std::vector<Vector3>& axes) const override;
 
-			virtual Vector3 centroid() const ;
+		Vector3 centroid() const override;
 
 			Vector3 neighborhoodCentroid() const;
 
@@ -63,6 +63,7 @@ namespace MeshManupulation
 
 		HalfEdgeIter _halfEdge;
 
+		HalfEdge* elementAddress(HalfEdgeIter h);
 
 		
 	};

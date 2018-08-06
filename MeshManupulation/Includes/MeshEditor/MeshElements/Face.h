@@ -14,13 +14,13 @@ namespace MeshManupulation
 		
 		Size degree() const;
 
-		virtual Vector3 centroid() const;
+		Vector3 centroid() const override;
 
-		virtual BBox bounds() const ;
+		BBox bounds() const override;
 
-		virtual Info getInfo() const ;
+		Info getInfo() const override;
 
-		virtual void translate(double dx, double dy, const Matrix4& modelViewProj);
+		void translate(double dx, double dy, const Matrix4& modelViewProj) override;
 
 		virtual void getAxes(std::vector<Vector3>& axes) const ;
 

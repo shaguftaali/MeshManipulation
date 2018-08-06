@@ -6,6 +6,15 @@
 #include <list>
 #include "HalfEdgeMesh.h"
 #include <map>
+//
+//#define PI (3.14159265358979323)
+//#define EPS_D (0.00000000001)
+//#define EPS_F (0.00001f)
+//#define INF_D (std::numeric_limits<double>::infinity())
+//#define INF_F (std::numeric_limits<float>::infinity())
+
+namespace MeshManupulation
+{
 
 #define PI (3.14159265358979323)
 #define EPS_D (0.00000000001)
@@ -13,8 +22,7 @@
 #define INF_D (std::numeric_limits<double>::infinity())
 #define INF_F (std::numeric_limits<float>::infinity())
 
-namespace MeshManupulation
-{
+
 	class  Vertex;
 	class Edge;
 	class  Face;
@@ -62,31 +70,7 @@ typedef std::list<HalfEdge>::const_iterator HalfEdgeCIter;
 		void translatedPoint(Vector3& p, double dx, double dy, const Matrix4& modelViewProj);
 	};
 
-	//class Vertex:public HalfEdgeElement
-	//{
-	//public:
-	//	HalfEdgeIter& halfEdge();
-
-	//	HalfEdgeCIter halfEdge() const;
-
-	//	Vector3 position;
-
-	//	Vector3 bindPosition;
-
-	//	Vector3 newPosition;
-
-	//	Index index;
-
-	//	bool isNew;
-
-	//	virtual void translate(double dx, double dy, const Matrix4& modelViewProj);
-
-	//	virtual BBox bounds() const ;
-
-	//	virtual Info getInfo() const ;
-
-	//	void getNeighbourhood(std::map<HalfEdgeIter,double>& seen, int depth=1);
-	//};
+	
 
 }
 

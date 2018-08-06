@@ -28,18 +28,18 @@ namespace MeshManupulation
 
 		bool isBoundary();
 
-		virtual  Info getInfo() ;
+		Info getInfo() const override;
 
 		void setNeighbours(HalfEdgeIter next,HalfEdgeIter twin,VertexIter vertex,
 						   EdgeIter edge,FaceIter face);
 
-		virtual  Vector3 centroid() const;
+		Vector3 centroid() const override;
 
-		virtual  BBox bounds() const;
+		BBox bounds() const override;
 
-		virtual void translate(double dx, double dy, const Matrix4& modelViewProj) ;
+		void translate(double dx, double dy, const Matrix4& modelViewProj) override;
 
-		virtual void getAxes(std::vector<Vector3>& axes) const ;
+		void getAxes(std::vector<Vector3>& axes) const override;
 
 		void getPickPoints(Vector3& a,Vector3& b,Vector3& p,Vector3& q,Vector3& r) const;
 

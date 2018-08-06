@@ -1,5 +1,8 @@
 #include "MeshEditor/MeshElements/HalfEdgeElement.h"
 #include "MeshEditor/MeshElements/Vertex.h"
+#include "MeshEditor/MeshElements/Edge.h"
+#include "MeshEditor/MeshElements/HalfEdge.h"
+#include "MeshEditor/MeshElements/Face.h"
 
 
 MeshManupulation::HalfEdge * MeshManupulation::HalfEdgeElement::getHalfEdge()

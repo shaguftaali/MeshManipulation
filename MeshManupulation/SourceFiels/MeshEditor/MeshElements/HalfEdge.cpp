@@ -1,4 +1,5 @@
 #include "MeshEditor/MeshElements/HalfEdge.h"
+#include "MeshEditor/MeshElements/Face.h"
 
 
 MeshManupulation::HalfEdgeIter & MeshManupulation::HalfEdge::twin()
@@ -56,9 +57,9 @@ bool MeshManupulation::HalfEdge::isBoundary()
 	return face()->isBoundary();
 }
 
-MeshManupulation::Info MeshManupulation::HalfEdge::getInfo()
+MeshManupulation::Info getInfo()
 {
-	return Info();
+	return MeshManupulation::Info();
 }
 
 void MeshManupulation::HalfEdge::setNeighbours(HalfEdgeIter next, HalfEdgeIter twin, VertexIter vertex, EdgeIter edge, FaceIter face)
@@ -70,11 +71,24 @@ void MeshManupulation::HalfEdge::setNeighbours(HalfEdgeIter next, HalfEdgeIter t
 	_face=face;
 }
 
+Vector3 MeshManupulation::HalfEdge::centroid() const
+{
+	return Vector3();
+}
+
 
 MeshManupulation::BBox MeshManupulation::HalfEdge::bounds() const
 {
-	return BBox();
+	BBox box;
+
+	return  box;
 }
+
+void MeshManupulation::HalfEdge::translate(double dx, double dy, const Matrix4 & modelViewProj)
+{}
+
+void MeshManupulation::HalfEdge::getAxes(std::vector<Vector3>& axes) const
+{}
 
 
 void MeshManupulation::HalfEdge::getPickPoints(Vector3 & a, Vector3 & b, Vector3 & p, Vector3 & q, Vector3 & r) const
