@@ -12,7 +12,7 @@ namespace MeshManupulation
 	public:
 		HalfEdgeIter& halfEdge();
 
-		HalfEdgeCIter hlafEdge() const;
+		HalfEdgeCIter halfEdgeC() const;
 
 		bool isBoundary();
 
@@ -22,7 +22,7 @@ namespace MeshManupulation
 
 		BBox bounds() const override;
 
-		Info getInfo() const override;
+		Info getInfo() ;
 
 		void translate(double dx, double dy, const Matrix4& modelViewProj) override;
 
@@ -39,6 +39,10 @@ namespace MeshManupulation
 	protected:
 		HalfEdgeIter _halfEdge;
 
+		Edge* elementAddress(EdgeIter e);
+
+
+		Edge* elementAddressC(EdgeIter e) const;
 
 	};
 }

@@ -10,7 +10,7 @@ namespace MeshManupulation
 
 		HalfEdgeIter& halfEdge();
 
-		HalfEdgeCIter halfEdge() const;
+		HalfEdgeCIter halfEdgeC() const;
 		
 		Size degree() const;
 

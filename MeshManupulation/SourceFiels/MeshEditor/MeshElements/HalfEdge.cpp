@@ -1,5 +1,7 @@
 #include "MeshEditor/MeshElements/HalfEdge.h"
 #include "MeshEditor/MeshElements/Face.h"
+#include "MeshEditor/MeshElements/Edge.h"
+#include "MeshEditor/MeshElements/Vertex.h"
 
 
 MeshManupulation::HalfEdgeIter & MeshManupulation::HalfEdge::twin()
@@ -73,26 +75,38 @@ void MeshManupulation::HalfEdge::setNeighbours(HalfEdgeIter next, HalfEdgeIter t
 
 Vector3 MeshManupulation::HalfEdge::centroid() const
 {
-	return Vector3();
+	return edge()->centroid();
 }
 
 
 MeshManupulation::BBox MeshManupulation::HalfEdge::bounds() const
 {
-	BBox box;
 
-	return  box;
+	return  edge()->bounds();
 }
 
 void MeshManupulation::HalfEdge::translate(double dx, double dy, const Matrix4 & modelViewProj)
-{}
+{
+	edge()->translate(dx,dy,modelViewProj);
+}
 
 void MeshManupulation::HalfEdge::getAxes(std::vector<Vector3>& axes) const
-{}
+{
+	edge()->getAxes(axes);
+}
 
 
 void MeshManupulation::HalfEdge::getPickPoints(Vector3 & a, Vector3 & b, Vector3 & p, Vector3 & q, Vector3 & r) const
 {
-	
+	const double w=1.0/6;
 
+	Vector3 x0=vertex()->position;
+	Vector3 x1=next()->vertex()->position;
+	Vector3 x2=next()->next()->vertex()->position;
+
+	a=x1;
+	p=  (1.0 - w)*x1 + w * x2;
+	r = (1.0 - w)*x1 + w * x0;
+	q = (p + r ) / 2.0;
+	b = a + 2.0 * (q - a);
 }

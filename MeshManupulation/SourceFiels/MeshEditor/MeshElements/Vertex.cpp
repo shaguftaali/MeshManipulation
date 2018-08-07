@@ -4,7 +4,7 @@
 #include "MeshEditor/MeshElements/HalfEdge.h"
 #include <sstream>
 //
-//MeshManupulation::HalfEdgeIter & MeshManupulation::Vertex::halfEdge()
+//MeshManupulation::HalfEdgeIter & MeshManupulation::Vertex::halfEdgeC()
 //{
 //	// TODO: insert return statement here
 //}
@@ -88,12 +88,36 @@ Vector3 MeshManupulation::Vertex::centroid() const
 
 Vector3 MeshManupulation::Vertex::neighborhoodCentroid() const
 {
-	return Vector3();
+	Vector3 c(0,0,0);
+	double d=0;
+
+	HalfEdgeCIter h=halfEdge();
+	do
+	{
+		c=c+(h->next()->vertex()->position);
+		d+=1;
+		h=h->twin()->next();
+	}while (h!=halfEdge());
+	c=c/d;
+	return c;
 }
 
+/**
+* returns the number of edges (or equivalently, polygons) touching this
+* vertex
+*/
 MeshManupulation::Size MeshManupulation::Vertex::degree() const
 {
-	return Size();
+	Size d=0;
+	HalfEdgeIter h=_halfEdge;
+	do
+	{
+		if(!h->face()->isBoundary())
+		{
+			d++;
+		}
+	}while (h!=_halfEdge);
+	return d;
 }
 
 MeshManupulation::HalfEdge * MeshManupulation::Vertex::elementAddress(HalfEdgeIter h)
