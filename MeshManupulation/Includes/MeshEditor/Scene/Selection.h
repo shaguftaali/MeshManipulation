@@ -1,6 +1,6 @@
 #pragma once
 #include "MeshEditor/Scene/SceneObject.h"
-#include "HalfEdgeElement.h"
+#include "MeshEditor/MeshElements/HalfEdgeElement.h"
 
 namespace MeshManupulation
 {

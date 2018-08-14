@@ -32,6 +32,12 @@ Vector4 Vector4::operator*(const float scaler)
 	return Vector4(x*scaler,y*scaler,z*scaler,w*scaler);
 }
 
+Vector3 Vector4::projectTo3D()
+{
+	double invW=1.0/w;
+	return Vector3(x*invW,y*invW,z*invW);
+}
+
 void Vector4::SetArray()
 {
 	arr[0]=x;

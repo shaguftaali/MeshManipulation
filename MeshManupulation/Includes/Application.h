@@ -1,6 +1,7 @@
 #pragma once
 #include "Render.h"
 #include "Maths/Matrix4.h"
+#include "Scene/Scene.h"
 
 namespace MeshManupulation
 {
@@ -11,6 +12,7 @@ namespace MeshManupulation
 	class Application:public Renderer
 	{
 		
+	private:
 		enum  Mode
 		{
 			MODEL_MODE,
@@ -60,5 +62,10 @@ namespace MeshManupulation
 												  */
 		void dragSelection(float x, float y, float dx, float dy,
 						   const Matrix4& modelViewProj);
+
+		Scene* scene;
+
+		Matrix4 get_world_to_3DH();
+
 	};
 }

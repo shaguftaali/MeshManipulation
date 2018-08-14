@@ -14,6 +14,7 @@ class Vector4
 	Vector4(float a_x,float a_y, float a_z, float a_w);
 	Vector4(Vector3 vec3, float a_w);
 	Vector4 operator * (const float scaler);
+	Vector3 projectTo3D();
 
 	float arr[4];
 
